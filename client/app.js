@@ -28,5 +28,22 @@ Template.registerHelper("timestampToTime", function (timestamp) {
   return hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
 });
 
+Template.listings.helpers({
+  channels: function () {
+    return Channels.find();
+  }
+});
+
+
+Template.channel.helpers({
+  active: function () {
+    if (Session.get('channel') === this.name) {
+      return "active";
+    } else {
+      return "";
+    }
+  }
+});
 Meteor.subscribe('messages');
 Meteor.subscribe('allUsernames');
+Meteor.subscribe('channels');

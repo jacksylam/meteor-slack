@@ -16,4 +16,13 @@ Meteor.startup(function() {
       Factory.create('message');
     });
   }
+
+  Channels.remove({});
+  Channels.insert({
+    name: "general"
+  });
+  Channels.insert({
+    name: "random"
+  });
 });
+

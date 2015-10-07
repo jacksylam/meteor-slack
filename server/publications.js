@@ -1,8 +1,8 @@
 /**
  * Created by Jack on 10/6/2015.
  */
-Meteor.publish('messages', function () {
-  return Messages.find();
+Meteor.publish('messages', function (channel) {
+  return Messages.find({channel: channel});
 });
 
 Meteor.publish("allUsernames", function () {
@@ -11,3 +11,8 @@ Meteor.publish("allUsernames", function () {
     "services.github.username": 1
   }});
 });
+
+Meteor.publish('channels', function () {
+  return Channels.find();
+});
+
